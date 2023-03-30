@@ -4,14 +4,7 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-
-  use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  }
-
-
+  -- Theme
   use({
 	  'rose-pine/neovim',
 	  as = 'rose-pine',
@@ -21,8 +14,17 @@ return require('packer').startup(function(use)
 	  end
   })
 
+  -- Fuzzy finder
+  use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+	  -- or                            , branch = '0.1.x',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  -- Parsing
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 
+  -- LSP
   use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
@@ -46,4 +48,15 @@ return require('packer').startup(function(use)
 	  }
   }
 
+  -- Status bar
+  use 'vim-airline/vim-airline'
+
+  -- Commentary
+  use 'tpope/vim-commentary'
+
+  -- Dev Icons
+  use 'ryanoasis/vim-devicons'
+
+  -- Git Wrapper
+  use 'tpope/vim-fugitive'
 end)
