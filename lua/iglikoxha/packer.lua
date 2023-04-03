@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
       {'L3MON4D3/LuaSnip'},     -- Required
     }
   }
+
   -- Status bar
   use {
       'nvim-lualine/lualine.nvim',
@@ -53,6 +54,8 @@ return require('packer').startup(function(use)
   }
 
   -- Git
+  use("tpope/vim-fugitive")
+
   use {
       'lewis6991/gitsigns.nvim',
       config = function()
