@@ -39,9 +39,48 @@ return require('packer').startup(function(use)
     }
   }
   -- Status bar
-  use 'itchyny/lightline.vim'
+  use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  }
 
-  -- Commentary
-  use 'tpope/vim-commentary'
+  -- Comment
+  use {
+      'numToStr/Comment.nvim',
+      config = function()
+          require('Comment').setup()
+      end
+  }
+
+  -- Git
+  use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+          require('gitsigns').setup()
+      end
+  }
+
+  -- Terminal
+  use {
+      "akinsho/toggleterm.nvim", tag = '*', config = function()
+          require("toggleterm").setup {
+            open_mapping = [[<leader>t]]
+          }
+      end
+  }
+
+  -- Help
+  use {
+      "folke/which-key.nvim",
+      config = function()
+          vim.o.timeout = true
+          vim.o.timeoutlen = 300
+          require("which-key").setup {
+              -- your configuration comes here
+              -- or leave it empty to use the default settings
+              -- refer to the configuration section below
+          }
+      end
+  }
 end)
 
