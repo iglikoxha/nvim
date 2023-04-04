@@ -12,3 +12,4 @@ vim.opt.smartindent = true
 
 vim.opt.colorcolumn = '79'
 
+vim.opt.clipboard = 'unnamedplus'

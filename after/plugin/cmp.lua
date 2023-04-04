@@ -1,8 +1,7 @@
 local cmp = require('cmp')
 
 cmp.setup {
-    mapping = {
-        ['<CR>'] = cmp.mapping.confirm(),
-    },
+    mapping = cmp.mapping.preset.insert({
+        ["<C-CR>"] = cmp.mapping.confirm({ select = true }),
+    }),
 }
-
