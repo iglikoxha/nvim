@@ -2,12 +2,21 @@ local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
     lsp.default_keymaps({ buffer = bufnr })
+
+    vim.keymap.set('n', '<space>d', vim.diagnostic.open_float)
+    vim.api.nvim_set_keymap('n', '<C-l>', '<F3>', {})
 end)
 
--- (Optional) Configure lua language server for neovim
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-
 lsp.setup()
+
 vim.diagnostic.config({
     virtual_text = true
 })
+
+local cmp = require('cmp')
+
+cmp.setup {
+    mapping = cmp.mapping.preset.insert({
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+    }),
+}
