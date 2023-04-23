@@ -6,7 +6,8 @@ return require('packer').startup(function(use)
 
     -- Theme
     use 'folke/tokyonight.nvim'
-    use { "ellisonleao/gruvbox.nvim" }
+
+    use { 'ellisonleao/gruvbox.nvim' }
 
     -- Fuzzy finder
     use {
@@ -41,6 +42,11 @@ return require('packer').startup(function(use)
         }
     }
 
+    -- Bufferline
+    use {'akinsho/bufferline.nvim', tag = "*", 
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
+
     -- Status bar
     use {
         'nvim-lualine/lualine.nvim',
@@ -56,7 +62,7 @@ return require('packer').startup(function(use)
     }
 
     -- Git
-    use("tpope/vim-fugitive")
+    use('tpope/vim-fugitive')
 
     use {
         'lewis6991/gitsigns.nvim',
@@ -67,11 +73,11 @@ return require('packer').startup(function(use)
 
     -- Terminal
     use {
-        "akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup {
-            open_mapping = [[<C-\>]],
-            -- insert_mappings = false
-        }
-    end
+        'akinsho/toggleterm.nvim', tag = '*', config = function()
+            require('toggleterm').setup {
+                open_mapping = [[<C-\>]],
+            }
+        end
     }
+
 end)
