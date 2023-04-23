@@ -9,6 +9,17 @@ return require('packer').startup(function(use)
 
     use { 'ellisonleao/gruvbox.nvim' }
 
+    -- Explorer
+    use {
+        'nvim-tree/nvim-tree.lua',
+        requires = {
+            'nvim-tree/nvim-web-devicons', -- optional
+        },
+        config = function()
+            require("nvim-tree").setup {}
+        end
+    }
+
     -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
@@ -43,7 +54,7 @@ return require('packer').startup(function(use)
     }
 
     -- Bufferline
-    use {'akinsho/bufferline.nvim', tag = "*", 
+    use {'akinsho/bufferline.nvim', tag = "*",
         requires = 'nvim-tree/nvim-web-devicons'
     }
 

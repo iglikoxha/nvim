@@ -10,7 +10,8 @@ keymap('n', '<C-j>', '<C-w>j', opts)
 keymap('n', '<C-k>', '<C-w>k', opts)
 keymap('n', '<C-l>', '<C-w>l', opts)
 
-keymap('n', '<leader>e', ':Ex<CR>', opts)
+keymap('n', '<leader>e', ':NvimTreeFocus<CR>', opts)
+keymap('n', '<leader>d', ':bd<CR>', opts)
 
 keymap('n', '+', ':resize +2<CR>', opts)
 keymap('n', '_', ':resize -2<CR>', opts)
