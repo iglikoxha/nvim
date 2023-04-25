@@ -1,6 +1,7 @@
 vim.opt.guicursor = ''
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus'
+vim.opt.ignorecase = true
 vim.opt.showmode = false -- Don't need because we have lualine
 vim.opt.number = true
 vim.opt.relativenumber = true

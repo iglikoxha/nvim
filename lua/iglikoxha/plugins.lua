@@ -15,9 +15,9 @@ return require('packer').startup(function(use)
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
         },
-        config = function()
-            require("nvim-tree").setup {}
-        end
+        -- config = function()
+        --     require("nvim-tree").setup {}
+        -- end
     }
 
     -- Fuzzy finder
@@ -91,4 +91,8 @@ return require('packer').startup(function(use)
         end
     }
 
+    use {
+        "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 end)

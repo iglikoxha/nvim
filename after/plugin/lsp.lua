@@ -20,8 +20,8 @@ local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
     mapping = {
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        ['<C-j>'] = cmp.mapping.select_next_item(),
+--        ['<C-k>'] = cmp.mapping.select_prev_item(),
+--        ['<C-j>'] = cmp.mapping.select_next_item(),
 
         -- `Enter` key to confirm completion
         ['<CR>'] = cmp.mapping.confirm({select = false}),
