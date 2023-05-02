@@ -83,16 +83,13 @@ return require('packer').startup(function(use)
     }
 
     -- Terminal
-    use {
-        'akinsho/toggleterm.nvim', tag = '*', config = function()
-            require('toggleterm').setup {
-                open_mapping = [[<C-\>]],
-            }
-        end
-    }
+    use {'akinsho/toggleterm.nvim', tag = '*'}
 
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+
+    -- Copilot
+    use("github/copilot.vim")
 end)
