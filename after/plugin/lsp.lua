@@ -33,7 +33,7 @@ cmp.setup({
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
 
-        ["<C-e>"] = cmp.mapping {
+        ['<C-e>'] = cmp.mapping {
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         },

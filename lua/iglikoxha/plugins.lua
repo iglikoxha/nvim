@@ -4,30 +4,26 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Theme
     use 'folke/tokyonight.nvim'
 
     use { 'ellisonleao/gruvbox.nvim' }
 
-    -- Explorer
     use {
         'nvim-tree/nvim-tree.lua',
         requires = {
             'nvim-tree/nvim-web-devicons', -- optional
         },
         -- config = function()
-        --     require("nvim-tree").setup {}
+        --     require('nvim-tree').setup {}
         -- end
     }
 
-    -- Fuzzy finder
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    -- Parsing
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
     -- LSP
@@ -53,18 +49,15 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- Bufferline
-    use {'akinsho/bufferline.nvim', tag = "*",
-        requires = 'nvim-tree/nvim-web-devicons'
-    }
+    -- use {'akinsho/bufferline.nvim', tag = '*',
+    --     requires = 'nvim-tree/nvim-web-devicons'
+    -- }
 
-    -- Status bar
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     }
 
-    -- Comment
     use {
         'numToStr/Comment.nvim',
         config = function()
@@ -72,7 +65,6 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- Git
     use('tpope/vim-fugitive')
 
     use {
@@ -82,14 +74,12 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- Terminal
     use {'akinsho/toggleterm.nvim', tag = '*'}
 
     use {
-        "windwp/nvim-autopairs",
-        config = function() require("nvim-autopairs").setup {} end
+        'windwp/nvim-autopairs',
+        config = function() require('nvim-autopairs').setup {} end
     }
 
-    -- Copilot
-    use("github/copilot.vim")
+    use('github/copilot.vim')
 end)
