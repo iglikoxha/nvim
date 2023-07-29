@@ -4,27 +4,27 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use 'folke/tokyonight.nvim'
-
     use { 'ellisonleao/gruvbox.nvim' }
 
     use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional
-        },
-        -- config = function()
-        --     require('nvim-tree').setup {}
-        -- end
-    }
-
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.2',
         -- or                            , branch = '0.1.x',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+        config = function()
+            require('lualine').setup({
+                options = {
+                    theme = 'gruvbox'
+                }
+            })
+        end
+    }
 
     -- LSP
     use {
@@ -32,14 +32,8 @@ return require('packer').startup(function(use)
         branch = 'v2.x',
         requires = {
             -- LSP Support
-            { 'neovim/nvim-lspconfig' }, -- Required
-            {
-                -- Optional
-                'williamboman/mason.nvim',
-                run = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
+            { 'neovim/nvim-lspconfig' },             -- Required
+            { 'williamboman/mason.nvim' },           -- Optional
             { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
             -- Autocompletion
@@ -49,28 +43,12 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- use {'akinsho/bufferline.nvim', tag = '*',
-    --     requires = 'nvim-tree/nvim-web-devicons'
-    -- }
-
-    use { 'romgrk/barbar.nvim', requires = {
-        'lewis6991/gitsigns.nvim',     -- OPTIONAL: for git status
-        'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    } }
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-    }
-
     use {
         'numToStr/Comment.nvim',
         config = function()
             require('Comment').setup()
         end
     }
-
-    use('tpope/vim-fugitive')
 
     use {
         'lewis6991/gitsigns.nvim',
@@ -79,7 +57,15 @@ return require('packer').startup(function(use)
         end
     }
 
-    use { 'akinsho/toggleterm.nvim', tag = '*' }
+    use({
+        'kylechui/nvim-surround',
+        tag = '*', -- Use for stability; omit to use `main` branch for the latest features
+        config = function()
+            require('nvim-surround').setup({
+                -- Configuration here, or leave empty to use defaults
+            })
+        end
+    })
 
     use {
         'windwp/nvim-autopairs',

@@ -1,28 +1,25 @@
 local lsp = require('lsp-zero').preset({})
 
 lsp.on_attach(function(client, bufnr)
+    -- see :help lsp-zero-keybindings
+    -- to learn the available actions
     lsp.default_keymaps({ buffer = bufnr })
 
     -- F3 is hard to type in my Macbook
     vim.api.nvim_set_keymap('n', '<C-f>', '<F3>', {})
 end)
 
+-- (Optional) Configure lua language server for neovim
+require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+
 lsp.setup()
 
-vim.diagnostic.config({
-    virtual_text = true
-})
-
--- Make sure you setup `cmp` after lsp-zero
-
+-- You need to setup `cmp` after lsp-zero
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
     mapping = {
-        --        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        --        ['<C-j>'] = cmp.mapping.select_next_item(),
-
         -- `Enter` key to confirm completion
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
 
@@ -32,11 +29,9 @@ cmp.setup({
         -- Navigate between snippet placeholder
         ['<C-f>'] = cmp_action.luasnip_jump_forward(),
         ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-
-        ['<C-e>'] = cmp.mapping {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        },
     }
+})
 
+vim.diagnostic.config({
+    virtual_text = true
 })
