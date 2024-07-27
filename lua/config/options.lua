@@ -4,3 +4,5 @@
 
 -- Hide hightlight on search
 vim.opt.hlsearch = false
+vim.opt.guicursor = ""
+vim.opt.colorcolumn = "80"
