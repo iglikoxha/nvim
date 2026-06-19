@@ -5,3 +5,4 @@ vim.opt.hlsearch = false
 vim.opt.guicursor = ""
 vim.opt.colorcolumn = "80"
 vim.opt.swapfile = false
+vim.g.lazyvim_python_lsp = "basedpyright"
